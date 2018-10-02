@@ -1,5 +1,9 @@
 package application;
 
+/**
+ * @author Bram Pulles
+ * This class can be used to encrypt and decrypt with a Nihilist Cipher.
+ */
 public class EncryptionDecryption {
 	
 	private EncryptionDecryption() {	
@@ -71,51 +75,5 @@ public class EncryptionDecryption {
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

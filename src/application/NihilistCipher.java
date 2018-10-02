@@ -8,8 +8,16 @@ import java.util.ArrayList;
 /**
  * @author Bram Pulles
  * This program can be used to find the keyword of a given encrypted text (in Nihilist cipher) and key. 
- *
+ * Two methods can be used: bruteforce all the possible keywords or bruteforce all the keywords which are 'real' words.
+ * 
+ * I used this program to decipher the following ciphertext:
+ * "6559439645696558576646487955577762704969530352496958538583484849678645677526546472466727469663867859658376607655576676764758"
+ * It was given that the keyword length is five so I bruteforced all the possible 'real' keywords with length five.
+ * This resulted in the keyword: BREAK. And the following plaintext: 
+ * "It is a mistake to think you can solve any major problems just with potatoes."
+ *  
  */
+
 public class NihilistCipher {
 	
 	private static final int KEYWORD_LENGTH = 5;
@@ -40,6 +48,9 @@ public class NihilistCipher {
 		
 	}
 	
+	/**
+	 * Check all the possible keys with the correct length.
+	 */
 	private static void checkAllWords() {
 		PolybiusSquare polybiusSquare = new PolybiusSquare(KEYWORD_LENGTH);
 		
@@ -52,7 +63,7 @@ public class NihilistCipher {
 			if(validAnswer(plaintext)) {
 				polybiusSquare.printGrid();
 				System.out.println(plaintext);
-				System.exit(0);
+				//System.exit(0);
 			}
 			
 			polybiusSquare.nextKeyword();	
@@ -95,6 +106,7 @@ public class NihilistCipher {
 	 */
 	private static boolean validAnswer(String plaintext) {
 		
+		//TODO: check how valid the answer is by searching for words in it.
 		int originalLength = plaintext.length();
 		plaintext = plaintext.replaceAll("_", "");
 		

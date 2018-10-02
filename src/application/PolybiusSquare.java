@@ -1,5 +1,9 @@
 package application;
 
+/**
+ * @author Bram Pulles
+ * This class handles everything with regards to the Polybius Square and validity of keywords.
+ */
 public class PolybiusSquare {
 	
 	
@@ -14,9 +18,10 @@ public class PolybiusSquare {
 	 */
 	public PolybiusSquare(int keywordLength) {
 		
+		//TODO: support keyword lengths other than 5.
 		if(keywordLength != 5) {
 			System.out.println("Keyword lengths other than 5 are not supported (yet)");
-			System.exit(0);
+			System.exit(1);
 		}
 		
 		KEYWORD_LENGTH = keywordLength;
@@ -230,36 +235,6 @@ public class PolybiusSquare {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
