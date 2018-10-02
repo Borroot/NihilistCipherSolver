@@ -37,6 +37,29 @@ public class PolybiusSquare {
 	}
 	
 	/**
+	 * Check if the keyword contains any letters more than once.
+	 * @param keyword
+	 * @return true if the keyword is valid
+	 */
+	public static boolean isValidKeyword(String keyword) {
+		
+		keyword = keyword.replaceAll("\\s+","");
+		keyword = keyword.toUpperCase();
+		char[] keywordArray = new char[keyword.length()];
+		
+		for(int i = 0; i < keywordArray.length; i++) 
+			keywordArray[i] = keyword.charAt(i);
+		
+		for(int i = 0; i < keyword.length(); i++) 
+			for(int j = i + 1; j < keyword.length(); j++)
+				if(keywordArray[i] == keywordArray[j]) {
+					return false;
+				}
+		
+		return true;
+	}
+	
+	/**
 	 * Checks if the keyword contains any letters more than once.
 	 * @return if the keyword is valid.
 	 */
@@ -71,6 +94,14 @@ public class PolybiusSquare {
 			
 			for(int j = 0; j < max; j++)
 				keyword[j] = 'A';
+			
+			if(max == KEYWORD_LENGTH - 1) {
+				System.out.println("Progress: " + this.keyword[KEYWORD_LENGTH - 1]);
+				for(int i = 0; i < KEYWORD_LENGTH; i++)
+					System.out.print(keyword[i]);
+				System.out.print("\n");
+			}
+				
 			
 		}while(!validKeyword());
 	}
@@ -160,6 +191,23 @@ public class PolybiusSquare {
 	}
 	
 	/**
+	 * Checks if a given value is valid.
+	 * @param value
+	 * @return if the value is valid
+	 */
+	public static boolean isValidValue(int value) {
+		int row = value / 10 - 1;
+		int col = value % 10 - 1;
+		
+		if(row > 4 || col > 4) {
+			return false;
+		}else if(row < 0 || col < 0) {
+			return false;
+		}else
+			return true;
+	}
+	
+	/**
 	 * Return the letter by the given value.
 	 * @param a number in the domain 11-55
 	 * @return letter in the grid at the given value
@@ -169,12 +217,16 @@ public class PolybiusSquare {
 		int row = value / 10 - 1;
 		int col = value % 10 - 1;
 		
-		if(row > 4 || col > 4) {
-			System.out.println("This value is to big.");
-			System.exit(1);
-		}
-		
 		return grid[row][col];
+	}
+	
+	public String getKeyword() {
+		String keyword = "";
+		
+		for(int i = 0; i < KEYWORD_LENGTH; i++)
+			keyword += this.keyword[i];
+		
+		return keyword;
 	}
 
 }

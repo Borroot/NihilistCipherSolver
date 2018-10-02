@@ -60,7 +60,10 @@ public class EncryptionDecryption {
 			
 			int plaintextInNumbers = cipherNumber - keyInNumbers;
 			
-			plaintext += grid.getLetterByValue(plaintextInNumbers);
+			if(PolybiusSquare.isValidValue(plaintextInNumbers))
+				plaintext += grid.getLetterByValue(plaintextInNumbers);
+			else
+				plaintext += "__";
 		}
 		
 		
@@ -68,3 +71,51 @@ public class EncryptionDecryption {
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
